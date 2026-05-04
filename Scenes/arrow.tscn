@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://r3c4bgotk1n3"]
+
+[ext_resource type="Script" path="res://Scripts/arrow.gd" id="script_arrow"]
+[ext_resource type="Texture2D" uid="uid://vsl42psss7d2" path="res://Assets/GandalfHardcore Archer/arrow.png" id="1_2u0bd"]
+[ext_resource type="Texture2D" uid="uid://dymy1qv4x3cxq" path="res://Assets/Medieval Archer/NoBackgroundColor/spr_ArcherAttack_strip_NoBkg.png" id="1_h5x2m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h5x2m"]
+radius = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plat"]
+size = Vector2(20, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40cdi"]
+atlas = ExtResource("1_h5x2m")
+region = Rect2(1710, 0, 90, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxsqv"]
+atlas = ExtResource("1_h5x2m")
+region = Rect2(1890, 0, 90, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjaco"]
+atlas = ExtResource("1_h5x2m")
+region = Rect2(2070, 0, 90, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c32fr"]
+atlas = ExtResource("1_h5x2m")
+region = Rect2(2250, 0, 90, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu778"]
+atlas = ExtResource("1_h5x2m")
+region = Rect2(2430, 0, 90, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1mns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40cdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxsqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjaco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c32fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu778")
+}],
+"loop": false,
+"name": &"arrow hit wall",
+"speed": 10.0
+}]
+
+[node name="Arrow" type="Area2D" unique_id=1393535999]
+collision_layer = 8
+collision_mask = 1
+script = ExtResource("script_arrow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1289737753]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_h5x2m")
+
+[node name="Arrow hit wall" type="AnimatedSprite2D" parent="." unique_id=1205807341]
+position = Vector2(3, 0)
+sprite_frames = SubResource("SpriteFrames_q1mns")
+animation = &"arrow hit wall"
+offset = Vector2(-35, 10)
+
+[node name="Arrow sprite" type="Sprite2D" parent="." unique_id=454678634]
+texture = ExtResource("1_2u0bd")
+
+[node name="PlatformBody" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformBody"]
+shape = SubResource("RectangleShape2D_plat")
+disabled = true
+one_way_collision = true

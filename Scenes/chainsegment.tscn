@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://uhux0m8usurh"]
+
+[ext_resource type="Texture2D" uid="uid://2f6mjrpcnyqk" path="res://Assets/chain segment.png" id="1_7nfy4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mhov3"]
+radius = 3.0
+height = 16.0
+
+[node name="Chainsegment" type="Area2D" unique_id=2071710589]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=421953188]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_mhov3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=138598429]
+rotation = 3.1415927
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_7nfy4")

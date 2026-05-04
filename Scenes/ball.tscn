@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://da52tdl8uyxrg"]
+
+[ext_resource type="Texture2D" uid="uid://die34qxyuaq4t" path="res://Assets/ball.png" id="1_d60mj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ij5cq"]
+radius = 7.75
+
+[node name="Ball" type="Area2D" unique_id=943572752]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1600998912]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_d60mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=37648876]
+shape = SubResource("CircleShape2D_ij5cq")

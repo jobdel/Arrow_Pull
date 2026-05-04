@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://byd8blu0ddwjq"]
+
+[ext_resource type="Script" uid="uid://w6hiihu5q8w1" path="res://Scripts/rope_arrow.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://vsl42psss7d2" path="res://Assets/GandalfHardcore Archer/arrow.png" id="2_arrow"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rope"]
+radius = 2.0
+
+[node name="RopeArrow" type="Area2D" unique_id=204150107]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=293486296]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_rope")
+
+[node name="Arrow sprite" type="Sprite2D" parent="." unique_id=823109416]
+texture = ExtResource("2_arrow")
+
+[node name="RopeLine" type="Line2D" parent="." unique_id=1311550043]
+width = 2.0
+default_color = Color(0.80295783, 0.6278269, 0.39842623, 1)
